@@ -1,0 +1,114 @@
+body {
+    font-family: "Avenir", "Montserrat";
+    background-color: #232323;
+    background-image: url(/images/pic1.jpg);
+    background-attachment: fixed;
+    background-origin: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#pagination-container {
+    background-color: cornflowerblue;
+    width: 800px;
+    margin: 10px auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-weight: bolder;
+}
+
+#pagination-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.pagination-form {
+    display: inline;  
+}
+
+.pagination-btn {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    margin: 2px 5px;
+    padding: 5px;
+    transition: padding .5s;
+    font-size: 20px;
+}
+
+.pagination-btn:hover {
+    background-color: orange;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#container {
+    width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+}
+
+#individual-container {
+    border-bottom: 2px solid black;
+    padding: 20px;
+}
+
+#img {
+    float: left;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+@media (max-width: 1000px) {
+    #pagination-container, #container {
+        width: 700px;
+    }
+}
+
+@media (max-width: 800px) {
+    #pagination-container, #container {
+        width: 550px;
+    }
+    #pagination-btn-container {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    #pagination-container, #container {
+        width: 90%;
+    }
+    #img{
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+  
+::-webkit-scrollbar-track {
+  background: cornflowerblue; 
+}
+   
+::-webkit-scrollbar-thumb {
+  background: rgb(218, 53, 61); 
+}
+  
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(15, 224, 196); 
+}
+

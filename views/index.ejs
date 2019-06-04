@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DEMO APP</title>
+        <meta name="viewport" content="width=device-width">
+        <link href="/stylesheets/index.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Avenir" rel="stylesheet">  
+    </head>
+    <body>
+
+        <div id="pagination-container">
+
+                <p style="font-size: 20px;"><strong>Current page - </strong> <%= paginationIndex %>  </p>
+                <div id="pagination-btn-container">
+                    <% for( var j=1; j <= 15; j++ ) { %>
+                        <form action='/<%= j %>' method="GET" class="pagination-form" >
+                            <button class="pagination-btn"><strong> <%= j %> </strong></button>
+                        </form>
+                    <% } 
+                            
+                    %>
+                </div>
+                
+
+        </div>
+
+        <div id="container">
+
+            <%  if(data.data.allInfluencers.length != 0) {
+                var startingIndex = (paginationIndex*20) - 20 
+                var endingIndex   = (paginationIndex*20)
+                if(paginationIndex == 15 ) {
+                    endingIndex  =  299
+                } 
+                for( var i =  startingIndex; i < endingIndex; i++ ) {
+                    var influencer = data.data.allInfluencers[i] %>
+                    <div id="individual-container">
+                        <img id="img" src= <%= influencer.picture %>  alt= <%= influencer.username %> >
+                        <h2><strong>Username - </strong> <%= influencer.username %> </h2>
+                        <div>
+                            <%  for(let key in influencer.stats) {
+                                if(key == "followerCount")  { %>
+                                    <p> <strong>Followers - </strong> <%= influencer.stats[key] %> </p>  
+                                <%   } else {
+                                    for(let key1 in influencer.stats[key]) { %>
+                                        <p><strong style="text-transform: capitalize"> <%= key1 %> - </strong> <%= influencer.stats[key][key1] %> </p>
+                                    <% }  
+                                    }
+                            }  %>
+                        </div>
+                    </div>
+                <%    }    %>   
+            <%  }   %> 
+
+        </div>
+    </body>
+</html>
